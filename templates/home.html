@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoulNest - Pet Adoption</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+</head>
+<body>
+    <!-- Header -->
+    
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="{{ url_for('home') }}">
+      <div class="logo">🐾 <span>SoulNest</span></div>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a class="nav__link" href="{{ url_for('home') }}">Home</a>
+      <a class="nav__link" href="{{ url_for('contact') }}">Contact</a>
+      <a class="nav__link" href="{{ url_for('about') }}">About</a>
+      <a class="nav__link" href="{{ url_for('login') }}">My Account</a>
+      
+
+    </nav>
+
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+  </div>
+</header>
+
+
+
+<!-- mobile menu toggle (optional if adding JS later) -->
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+      ☰
+    </button>
+  </div>
+
+
+
+    <!-- Hero Slideshow -->
+    <div class="hero-slideshow" id="home">
+        <div class="slide active">
+            <img src="https://images.unsplash.com/photo-1606932250069-62f395a08602?w=1920" alt="Slide 1">
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1581217184298-f88b12171fb2?w=1920" alt="Slide 2">
+        </div>
+        <div class="slide">
+            <img src="https://www.bluecross.org.uk/sites/default/files/d8/assets/images/rabbit%20-%20pair.jpg" alt="Slide 3">
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1609854893786-d94a8a934644?w=1920" alt="Slide 4">
+        </div>
+        <div class="slide">
+            <img src="https://www.vets4pets.com/siteassets/species/bird/birds-inside-cage-door.jpg" alt="Slide 5">
+        </div>
+
+        <div class="overlay"></div>
+
+        <div class="hero-content">
+            <h1>Welcome to SoulNest</h1>
+            <p>Find your pet a new home 🏡</p>
+            <button class="btn-primary" onclick="scrollToSection('connect')">Join Us</button>
+        </div>
+
+        <div class="scroll-indicator" onclick="scrollToSection('connect')">
+            <span>Scroll to explore</span>
+            <div style="font-size: 2rem;">↓</div>
+        </div>
+
+        <button class="nav-arrow left" onclick="changeSlide(-1)">◀</button>
+        <button class="nav-arrow right" onclick="changeSlide(1)">▶</button>
+
+        <div class="dots-container" id="dots"></div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="content-wrapper">
+        <!-- Connect with us section -->
+        <section id="connect">
+            <h2>Your Connection Starts Here</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="icon-circle icon-blue">🐈</div>
+                    <h3>Adopt A Pet</h3>
+                    <p>Every year, millions of pets need loving homes. By adopting, you're giving a second chance to a deserving animal.</p>
+                    <a href="{{ url_for('adopt') }}" class="cta-btn">Explore Options</a>
+                </div>
+                <div class="card">
+                    <div class="icon-circle icon-green">🏠</div>
+                    <h3>Boardings Close to You</h3>
+                    <p>Locate compassionate animal Boardings in your area and take the first step toward adoption or support.</p>
+                    <a href="{{ url_for('shelters') }}" class="cta-btn">Explore Options</a>
+                </div>
+                <div class="card">
+                    <div class="icon-circle icon-blue">🍽</div>
+                    <h3>Nutritious Pet Foods</h3>
+                    <p>Give your pets balanced, nutritious food made with real ingredients and lots of love.</p>
+                    <a href="{{ url_for('foods') }}" class="cta-btn">Explore Options</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <div class="stats-section" id="statistics">
+    <h2 style="color: #2d4a6b; margin-bottom: 3rem; text-align: center; font-size: 40px;">Essential Pet Care Tips</h2>
+
+    <div class="stats-grid">
+
+        <div class="care-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2105/2105138.png" alt="Vet Icon">
+            <h3>Regular Vet Checkups</h3>
+            <p>Have routine health checks yearly (twice for seniors) and stay updated on vaccines, deworming, tick & flea care.</p>
+        </div>
+
+        <div class="care-card">
+            <img src="https://cdn-icons-png.freepik.com/256/12511/12511256.png?semt=ais_white_label" alt="Food Icon">
+            <h3>Balanced Food & Fresh Water</h3>
+            <p>Feed species-appropriate food and ensure fresh water is available at all times to keep pets healthy & hydrated.</p>
+        </div>
+
+        <div class="care-card">
+            <img src="https://cdn-icons-png.freepik.com/256/1292/1292646.png?semt=ais_white_label" alt="Exercise Icon">
+            <h3>Daily Exercise & Play</h3>
+            <p>Engage in daily walks, play sessions and training games to prevent obesity, boredom and behavioural issues.</p>
+        </div>
+
+        <div class="care-card">
+            <img src="https://cdn-icons-png.flaticon.com/256/8183/8183261.png" alt="Home Icon">
+            <h3>Safe & Clean Home</h3>
+            <p>Provide a clean resting area, avoid toxic items, maintain hygiene, and use ID tags or microchips for safety.</p>
+        </div>
+
+    </div>
+</div>
+
+
+        <!-- Fun Facts Section -->
+<section id="fun-facts" style="background: white;">
+  <h2>Did You Know? 🐾</h2>
+
+  <div class="fun-slider">
+    <button class="fun-arrow fun-arrow-left" onclick="changeFunSlide(-1)">◀</button>
+
+    <div class="fun-track">
+      <!-- Slide 1 -->
+      <div class="fun-card">
+        <h3>Mutual Benefits</h3>
+        <p>Studies show that pet owners have lower blood pressure, reduced stress levels, and increased physical activity compared to non-pet owners.</p>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="fun-card">
+        <h3>Perfect Match</h3>
+        <p>Mixed breed dogs often have fewer health problems than purebreds and can live 1–2 years longer on average.</p>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="fun-card">
+        <h3>Senior Sweethearts</h3>
+        <p>Older pets are often already trained, calmer, and grateful for a second chance. They make wonderful companions!</p>
+      </div>
+
+      <!-- Extra slides -->
+      <div class="fun-card">
+        <h3>Adoption Saves Lives</h3>
+        <p>Adopting from a shelter frees up space and resources, helping them rescue more animals in need.</p>
+      </div>
+
+      <div class="fun-card">
+        <h3>Stress Busters</h3>
+        <p>Just 10 minutes of petting a dog or cat can significantly reduce levels of the stress hormone cortisol.</p>
+      </div>
+
+      <div class="fun-card">
+        <h3>Kids & Pets</h3>
+        <p>Children who grow up with pets often develop better empathy, responsibility, and social skills.</p>
+      </div>
+    </div>
+
+    <button class="fun-arrow fun-arrow-right" onclick="changeFunSlide(1)">▶</button>
+  </div>
+</section>
+
+
+        <!-- Call to Action -->
+        <div class="cta-section" id="call-to-action">
+            <h2>Ready to Change a Life?</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Your perfect companion is waiting for you. Start your adoption journey today and experience the unconditional love only a rescue pet can give.
+            </p>
+            <button class="btn-white">Browse Available Pets</button>
+        </div>
+    </div>
+
+    
+
+    <!-- Quick Navigation Menu -->
+    <div class="quick-nav">
+        <button class="quick-nav-item" onclick="scrollToSection('connect')">
+            <span class="quick-nav-icon">👥</span>
+            <span class="quick-nav-label">connect</span>
+        </button>
+        <button class="quick-nav-item" onclick="scrollToSection('statistics')">
+            <span class="quick-nav-icon">📊</span>
+            <span class="quick-nav-label">Statistics</span>
+        </button>
+        <button class="quick-nav-item" onclick="scrollToSection('fun-facts')">
+            <span class="quick-nav-icon">💡</span>
+            <span class="quick-nav-label">Fun Facts</span>
+        </button>
+        <button class="quick-nav-item" onclick="scrollToSection('call-to-action')">
+            <span class="quick-nav-icon">✨</span>
+            <span class="quick-nav-label">Get Started</span>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 SoulNest. All rights reserved. Made with 💖 for pets in need.</p>
+    </footer>
+<script>
+        
+        // Scroll to section
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show/hide scroll to top button
+        const scrollTopBtm = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+    </script>
+
+    <script>
+  let currentSlide = 0;
+  let slides = [];
+  let dots = [];
+
+  document.addEventListener('DOMContentLoaded', () => {
+      // Get all slides
+      slides = Array.from(document.querySelectorAll('.hero-slideshow .slide'));
+
+      // Create dots
+      const dotsContainer = document.getElementById('dots');
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.className = 'dot';
+          dot.addEventListener('click', () => goToSlide(i));
+          dotsContainer.appendChild(dot);
+          dots.push(dot);
+      });
+
+      // Show first slide
+      goToSlide(0);
+
+      // Auto-slide every 5 seconds
+      setInterval(() => changeSlide(1), 2500);
+  });
+
+  function goToSlide(index) {
+      if (!slides.length) return;
+
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+
+      currentSlide = index;
+  }
+
+  function changeSlide(direction) {
+      goToSlide(currentSlide + direction);
+  }
+
+  // ------- your existing smooth-scroll code --------
+
+  function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+  }
+
+  function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  if (scrollTopBtn) {
+      window.addEventListener('scroll', () => {
+          if (window.scrollY > 500) {
+              scrollTopBtn.classList.add('visible');
+          } else {
+              scrollTopBtn.classList.remove('visible');
+          }
+      });
+  }
+</script>
+
+<script>
+
+  // ================= FUN FACTS SLIDER =================
+  let funCurrentIndex = 0;
+  let funCards = [];
+  let funTrack;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Existing DOMContentLoaded code for hero...
+    // (keep whatever you already have there)
+
+    // Fun facts setup
+    funTrack = document.querySelector('.fun-track');
+    funCards = Array.from(document.querySelectorAll('.fun-track .fun-card'));
+
+    updateFunSlider();
+  });
+
+  function updateFunSlider() {
+    if (!funTrack || !funCards.length) return;
+    const offset = -funCurrentIndex * 100; // because min-width: 100%
+    funTrack.style.transform = `translateX(${offset}%)`;
+  }
+// Auto-slide every 3 seconds
+setInterval(() => changeFunSlide(1), 3500);
+
+  function changeFunSlide(direction) {
+    if (!funCards.length) return;
+
+    funCurrentIndex += direction;
+
+    if (funCurrentIndex < 0) {
+      funCurrentIndex = funCards.length - 1;
+    } else if (funCurrentIndex >= funCards.length) {
+      funCurrentIndex = 0;
+    }
+
+    updateFunSlider();
+  }
+
+//----------------- existing scrollToSection / scrollTop code ==============
+  function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+  }
+
+  function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  const scrollTopBt = document.getElementById('scrollTopBtn');
+  if (scrollTopBtn) {
+      window.addEventListener('scroll', () => {
+          if (window.scrollY > 500) {
+              scrollTopBtn.classList.add('visible');
+          } else {
+              scrollTopBtn.classList.remove('visible');
+          }
+      });
+  }
+</script>
+
+</body>
+</html>

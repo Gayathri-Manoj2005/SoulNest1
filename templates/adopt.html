@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adopt a Pet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+     <link rel="stylesheet" href="{{ url_for('static', filename='adopt-style.css') }}">
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- HEADER -->
+    <header class="adopt-header">
+        <h1>Find Your Perfect Companion</h1>
+        <p>Select a category to start your adoption journey</p>
+    </header>
+
+    <!-- SECTION 1: TOP CATEGORY CARDS -->
+    <section class="options-container">
+
+        <!-- Dog card -->
+        <div class="pet-card">
+            <img class="pet-photo"
+                 src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?cs=srgb&dl=pexels-chevanon-1108099.jpg&fm=jpg"
+                 alt="Happy dogs">
+            <h2>Adopt a Dog</h2>
+            <p>Loyal and loving companions who are always excited to see you.</p>
+            <div class="pet-tags">Breeds: Labrador · Indie · Husky · Beagle</div>
+            <button class="btn-primary" onclick="filterPets('dog')">View Dogs</button>
+        </div>
+
+        <!-- Cat card -->
+        <div class="pet-card">
+            <img class="pet-photo"
+                 src="https://cdn.pixabay.com/photo/2024/02/28/07/42/european-shorthair-8601492_640.jpg"
+                 alt="Cute cat">
+            <h2>Adopt a Cat</h2>
+            <p>Calm, graceful and affectionate buddies who love cozy corners.</p>
+            <div class="pet-tags">Breeds: Persian · Indie · Siamese · Bengal</div>
+            <button class="btn-primary" onclick="filterPets('cat')">View Cats</button>
+        </div>
+
+        <!-- Small pets card -->
+        <div class="pet-card">
+            <img class="pet-photo"
+                 src="https://cdn.cdnparenting.com/articles/2018/05/265714244-H-1024x700.webp"
+                 alt="Rabbit">
+            <h2>Small Pets</h2>
+            <p>Adorable rabbits, hamsters and more for cozy homes and small spaces.</p>
+            <div class="pet-tags">Rabbits · Guinea Pigs · Hamsters</div>
+            <button class="btn-primary" onclick="filterPets('small')">View Small Pets</button>
+        </div>
+
+    </section>
+
+    <!-- SECTION 2: AVAILABLE PETS LIST (FILTERED ON SAME PAGE) -->
+    <section id="available-pets" class="available-pets-section">
+        <h2>Available Pets</h2>
+        <p>Choose a category above to see matching pets on this page.</p>
+
+        <div class="available-pets-grid">
+            <!-- Dogs -->
+            <div class="available-pet" data-type="dog">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHwLp0uy1JuDIXko2g5QggFg9-LEvgCz_xJQ&s" alt="Dog 1">
+                <div class="pet-type-label">Dog</div>
+                <h3>Bruno</h3>
+                <p>Friendly Golden Retriever, 2 years old, loves outdoor walks.</p>
+            </div>
+
+            <div class="available-pet" data-type="dog">
+                <img src="https://adopt-a-pet.in/media/styles/crop_thumbnail/public/s3/node/pets/2023-09/WhatsApp%20Image%202023-09-06%20at%2015.35.18%20%287%29_2.jpeg?VersionId=kbXjhX83K.Kiprtw93DRqmO83INeCH6e&h=da10bf29&itok=nrTRbJc0" alt="Dog 2">
+                <div class="pet-type-label">Dog</div>
+                <h3>Luna</h3>
+                <p>Playful Indie, vaccinated and great with families.</p>
+            </div>
+
+            <div class="available-pet" data-type="dog">
+                <img src=static/images/snowby.jpeg alt="Dog 3">
+                <div class="pet-type-label">Dog</div>
+                <h3>Snowby</h3>
+                <p>Playful indie, vaccinated and great with families.</p>
+            </div>
+
+
+            <!-- Cats -->
+            <div class="available-pet" data-type="cat">
+                <img src=static/images/oreo.jpeg alt="Cat 1">
+                <div class="pet-type-label">Cat</div>
+                <h3>Oreo</h3>
+                <p>Persian, Calm indoor cat who loves windowsills and soft blankets.</p>
+            </div>
+
+            <div class="available-pet" data-type="cat">
+                <img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&w=900&q=80" alt="Cat 2">
+                <div class="pet-type-label">Cat</div>
+                <h3>Snowy</h3>
+                <p>White Persian, gentle and affectionate with kids.</p>
+            </div>
+
+            <!-- Small pets -->
+            <div class="available-pet" data-type="small">
+                <img src="https://www.rabbitholehay.com/cdn/shop/articles/understanding-rabbit-behavior-S1_650b215c-76d8-4d9a-ba9a-038e51144d2c.png?v=1754516119" alt="Rabbit">
+                <div class="pet-type-label">Small Pet</div>
+                <h3>Choco</h3>
+                <p>Cute rabbit, loves carrots and quiet corners.</p>
+            </div>
+
+            <div class="available-pet" data-type="small">
+                <img src="https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?auto=format&fit=crop&w=900&q=80" alt="Hamster">
+                <div class="pet-type-label">Small Pet</div>
+                <h3>Peanut</h3>
+                <p>Energetic hamster, perfect for compact homes.</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- FILTER + SCROLL SCRIPT -->
+<script>
+    function filterPets(type) {
+        const cards = document.querySelectorAll('.available-pet');
+
+        cards.forEach(card => {
+            if (card.dataset.type === type) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        const section = document.getElementById('available-pets');
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+</body>
+</html>

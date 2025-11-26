@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | SoulNest</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">🐾 SoulNest</div>
+        <nav>
+            <a class="nav__link" href="{{ url_for('home') }}">Home</a>
+            <a class="nav__link" href="{{ url_for('about') }}">About</a>
+            <a class="nav__link" href="{{ url_for('login') }}">My Account</a>
+        </nav>
+    </header>
+
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p class="contact-info">
+            Contact us for your pet-related concerns.<br>
+            Just leave your details by filling out the simple form below,<br>
+            and our team will get in touch with you.
+        </p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('contact') }}" method="POST" class="contact-form">
+            <label>Name:</label>
+            <input type="text" name="name" required>
+
+            <label>Email:</label>
+            <input type="email" name="email" required>
+
+            <label>Phone:</label>
+            <input type="text" name="phone" required>
+
+            <label>Message:</label>
+            <textarea name="message" rows="4" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 SoulNest | All Rights Reserved 🐶🐱</p>
+    </footer>
+</body>
+</html>

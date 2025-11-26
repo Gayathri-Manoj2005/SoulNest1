@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nutritious Pet Foods</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='foods.css') }}">
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- HEADER -->
+  <header class="foods-header">
+    <h1>Nutritious Pet Foods</h1>
+    <p>Choose a category to explore balanced, vet-friendly food options for your pets.</p>
+  </header>
+
+  <!-- CATEGORY CARDS -->
+  <section class="foods-grid">
+
+    <!-- Dog food -->
+    <article class="food-card">
+      <img
+        class="food-photo"
+        src="https://media.istockphoto.com/id/1284996229/photo/healthy-natural-pet-food-in-bowl-and-dogs-paws-on-yellow-background.jpg?s=612x612&w=0&k=20&c=_Qmg2jezrT3FjZvViFANhZfR2nQcaHAMyca_f2qqizo="
+        alt="Nutritious dog food">
+      <h2>For Dogs</h2>
+      <p>High-quality kibble and wet food with protein, healthy fats, and joint-supporting nutrients.</p>
+      <ul class="food-tags">
+        <li>Puppy · Adult · Senior</li>
+        <li>Grain-free · Sensitive stomach</li>
+      </ul>
+      <a href="#dog-options" class="food-btn">View Dog Foods</a>
+    </article>
+
+    <!-- Cat food -->
+    <article class="food-card">
+      <img
+        class="food-photo"
+        src="https://petscare-assets-prod.s3.amazonaws.com/media/original_images/dzbmjJaJS-ivVowrMHgPig.webp"
+        alt="Nutritious cat food">
+      <h2>For Cats</h2>
+      <p>Complete and balanced recipes with taurine, high protein and support for shiny coats.</p>
+      <ul class="food-tags">
+        <li>Indoor · Kitten · Senior</li>
+        <li>Hairball · Urinary care</li>
+      </ul>
+      <a href="#cat-options" class="food-btn">View Cat Foods</a>
+    </article>
+
+    <!-- Rabbit food -->
+    <article class="food-card">
+      <img
+        class="food-photo"
+        src="https://www.feedmillmanufacturer.com/wp-content/uploads/2025/01/Advantages-of-Rabbit-Food.jpg"
+        alt="Nutritious rabbit food">
+      <h2>For Rabbits</h2>
+      <p>Fiber-rich hay and pellets to keep your rabbit’s teeth and digestion in perfect shape.</p>
+      <ul class="food-tags">
+        <li>Timothy hay · Alfalfa</li>
+        <li>Natural veggie treats</li>
+      </ul>
+      <a href="#rabbit-options" class="food-btn">View Rabbit Foods</a>
+    </article>
+
+    <!-- Bird food -->
+    <article class="food-card">
+      <img
+        class="food-photo"
+        src="https://www.shutterstock.com/image-photo/parrots-eat-food-morning-raising-600nw-2487927955.jpg"
+        alt="Nutritious bird food">
+      <h2>For Birds</h2>
+      <p>Balanced seed mixes, pellets and treats to support bright feathers and active energy.</p>
+      <ul class="food-tags">
+        <li>Parrots · Budgies · Cockatiels</li>
+        <li>Fortified seed & pellet mixes</li>
+      </ul>
+      <a href="#bird-options" class="food-btn">View Bird Foods</a>
+    </article>
+
+  </section>
+
+  <!-- OPTIONAL: placeholder sections these buttons scroll to -->
+  <section id="dog-options" class="detail-section">
+    <h3>Dog Food Options</h3>
+  <p class="detail-subtitle">
+    Choose recipes based on age, activity level, and any special sensitivities.
+  </p>
+
+  <div class="product-grid">
+    <article class="product-card">
+      <h4>Chicken & Rice Complete</h4>
+      <p class="product-meta">Dry kibble · Adult dogs</p>
+      <ul>
+        <li>Balanced protein, carbs and healthy fats.</li>
+        <li>Fortified with omega-3 & 6 for skin and coat.</li>
+        <li>Ideal for moderately active indoor dogs.</li>
+      </ul>
+      <p class="product-tag">Best for: Labs, Indies, Beagles</p>
+    </article>
+
+    <article class="product-card">
+      <h4>Gentle Tummy Lamb & Pumpkin</h4>
+      <p class="product-meta">Dry kibble · Sensitive stomach</p>
+      <ul>
+        <li>Easily digestible lamb as single protein source.</li>
+        <li>Pumpkin and rice for gut support.</li>
+        <li>No wheat, soy or artificial colours.</li>
+      </ul>
+      <p class="product-tag">Best for: Dogs with loose stool / vomiting issues</p>
+    </article>
+
+    <article class="product-card">
+      <h4>Slow-Cooked Chicken Stew</h4>
+      <p class="product-meta">Wet food · Picky eaters</p>
+      <ul>
+        <li>High moisture to keep dogs hydrated.</li>
+        <li>Real shredded chicken and veggies.</li>
+        <li>Can be mixed with kibble as a topper.</li>
+      </ul>
+      <p class="product-tag">Great as: Weekend treat or topper</p>
+    </article>
+  </div>
+
+  <div class="snack-section">
+    <h4>Suggested Treats & Snacks</h4>
+
+    <div class="snack-list">
+      <!-- Snack 1 -->
+      <div class="snack-item">
+        <img src="https://goofytails.com/cdn/shop/products/DogTreats_1.jpg?v=1681890927"
+             alt="Dental chew sticks" class="snack-img">
+        <div class="snack-text">
+          <h5>Dental Chew Sticks</h5>
+          <p>Helps reduce tartar build-up and keeps breath fresher. Look for vet-approved dental chews.</p>
+        </div>
+      </div>
+
+      <!-- Snack 2 -->
+      <div class="snack-item">
+        <img src="https://i.ytimg.com/vi/qsESkwWz30Q/sddefault.jpg"
+             alt="Soft training treats" class="snack-img">
+        <div class="snack-text">
+          <h5>Soft Training Treats</h5>
+          <p>Small, low-calorie treats ideal for clicker training and rewarding good behaviour.</p>
+        </div>
+      </div>
+
+      <!-- Snack 3 -->
+      <div class="snack-item">
+        <img src="https://wp-cdn.typhur.com/wp-content/uploads/2025/03/beef-jerky-dog-treats.jpg"
+             alt="Dehydrated meat jerky" class="snack-img">
+        <div class="snack-text">
+          <h5>Dehydrated Meat Jerky</h5>
+          <p>Single-ingredient chicken or fish jerky with no added salt or sugar is a high-value reward.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="snack-note">
+      Snacks should be at most about 10% of your dog’s daily calories.
+    </p>
+  </div>
+
+  </section>
+
+  <section id="cat-options" class="detail-section">
+  <h3>Cat Food Options</h3>
+  <p class="detail-subtitle">
+    Focus on high-protein recipes with taurine and controlled minerals.
+  </p>
+
+  <!-- FOOD CARDS ROW -->
+  <div class="product-grid">
+    <article class="product-card">
+      <h4>Indoor Hairball Control</h4>
+      <p class="product-meta">Dry food · Adult indoor cats</p>
+      <ul>
+        <li>High fibre blend to minimise hairballs.</li>
+        <li>Controlled calories to prevent weight gain.</li>
+        <li>Added taurine for heart and eye health.</li>
+      </ul>
+      <p class="product-tag">Best for: Long-hair &amp; indoor-only cats</p>
+    </article>
+
+    <article class="product-card">
+      <h4>Kitten Growth Formula</h4>
+      <p class="product-meta">Dry &amp; wet · 2–12 month kittens</p>
+      <ul>
+        <li>High protein and DHA for brain development.</li>
+        <li>Smaller kibble size for tiny mouths.</li>
+        <li>Supports strong bones and immunity.</li>
+      </ul>
+      <p class="product-tag">Feed until: 1 year of age</p>
+    </article>
+
+    <article class="product-card">
+      <h4>Urinary Care Gravy Pouches</h4>
+      <p class="product-meta">Wet food · Neutered adults</p>
+      <ul>
+        <li>Helps maintain healthy urinary pH.</li>
+        <li>Encourages water intake through gravy.</li>
+        <li>Great for cats that avoid drinking water.</li>
+      </ul>
+      <p class="product-tag">Vet-recommended for urinary-prone cats</p>
+    </article>
+  </div>
+
+  <!-- SNACKS BELOW -->
+  <div class="snack-section">
+    <h4>Suggested Treats &amp; Snacks</h4>
+
+    <div class="snack-list">
+      <div class="snack-item">
+        <img src="https://m.media-amazon.com/images/I/81TjvDbMyDL.jpg" alt="Cat dental treats" class="snack-img">
+        <div class="snack-text">
+          <h5>Crunchy Dental Bits</h5>
+          <p>Helps control plaque when used along with brushing and regular vet cleanings.</p>
+        </div>
+      </div>
+
+      <div class="snack-item">
+        <img src="https://m.media-amazon.com/images/I/81WfDWmYOqL.jpg" alt="Cat lickable treats" class="snack-img">
+        <div class="snack-text">
+          <h5>Lickable Purée Treats</h5>
+          <p>Perfect for bonding, hiding medicine, or tempting shy cats to eat.</p>
+        </div>
+      </div>
+
+      <div class="snack-item">
+        <img src="https://img.lazcdn.com/g/p/fc6b9881a82dbff60f378325d66d0f17.jpg_720x720q80.jpg" alt="Freeze dried cat treats" class="snack-img">
+        <div class="snack-text">
+          <h5>Freeze-Dried Meat Cubes</h5>
+          <p>Single-protein treats like chicken or salmon with no grains or fillers.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="snack-note">
+      Cat treats are calorie-dense — keep them to just a few pieces a day.
+    </p>
+  </div>
+</section>
+<!-- ================= RABBIT ================= -->
+<section id="rabbit-options" class="detail-section">
+  <h3>Rabbit Food Options</h3>
+  <p class="detail-subtitle">
+    Rabbits need unlimited hay plus a small portion of pellets daily.
+  </p>
+
+  <!-- FOOD CARDS ROW -->
+  <div class="product-grid">
+    <article class="product-card">
+      <h4>Timothy Hay Premium</h4>
+      <p class="product-meta">Long-strand hay · Daily base diet</p>
+      <ul>
+        <li>Helps wear down teeth naturally.</li>
+        <li>High fibre for healthy digestion.</li>
+        <li>Offer in unlimited quantity.</li>
+      </ul>
+      <p class="product-tag">Suitable for: Adult rabbits</p>
+    </article>
+
+    <article class="product-card">
+      <h4>Alfalfa Growth Mix</h4>
+      <p class="product-meta">Hay &amp; pellet blend · Young rabbits</p>
+      <ul>
+        <li>Higher calcium and protein for growth.</li>
+        <li>Feed to rabbits under 6–7 months.</li>
+        <li>Transition to timothy hay as they mature.</li>
+      </ul>
+      <p class="product-tag">Use for juveniles or pregnant does only</p>
+    </article>
+
+    <article class="product-card">
+      <h4>Natural Veggie Treat Bites</h4>
+      <p class="product-meta">Treat · 2–3 pieces per day</p>
+      <ul>
+        <li>Made from dried carrot, herbs and hay.</li>
+        <li>No added sugar, colours or seeds.</li>
+        <li>Use for bonding and training.</li>
+      </ul>
+      <p class="product-tag">Treats &lt; 5% of daily diet</p>
+    </article>
+  </div>
+
+  <!-- SNACKS BELOW -->
+  <div class="snack-section">
+    <h4>Suggested Treats &amp; Snacks</h4>
+
+    <div class="snack-list">
+      <div class="snack-item">
+        <img src="https://i.etsystatic.com/27283404/c/1512/1201/0/665/il/f4a598/3048032848/il_340x270.3048032848_su3n.jpg" class="snack-img">
+        <div class="snack-text">
+          <h5>Dried Herb Mix</h5>
+          <p>A pinch of dried mint, chamomile or parsley as an occasional fragrant treat.</p>
+        </div>
+      </div>
+
+      <div class="snack-item">
+        <img src="https://www.kwcages.com/media/catalog/product/cache/35d313316665050c3df32c99f6c5b206/6/4/6488_3.jpg" alt="Hay cubes" class="snack-img">
+        <div class="snack-text">
+          <h5>Compressed Hay Cubes</h5>
+          <p>Fun to toss and chew while still being mostly timothy hay and high in fibre.</p>
+        </div>
+      </div>
+
+      <div class="snack-item">
+        <img src="https://www.plantedwell.com/wp-content/uploads/2020/07/vegetables-for-rabbits.jpg" alt="Fresh vegetables for rabbits" class="snack-img">
+        <div class="snack-text">
+          <h5>Small Fresh Veg Pieces</h5>
+          <p>Very small portions of carrot, coriander or leafy greens, introduced slowly.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="snack-note">
+      Avoid sugary snacks; rabbit treats should always be hay-based or veggie-based.
+    </p>
+  </div>
+</section>
+
+<!-- ================= BIRD ================= -->
+<section id="bird-options" class="detail-section">
+  <h3>Bird Food Options</h3>
+  <p class="detail-subtitle">
+    A good bird diet combines quality seed, pellets and fresh veggies.
+  </p>
+
+  <!-- FOOD CARDS ROW -->
+  <div class="product-grid">
+    <article class="product-card">
+      <h4>Fortified Seed Mix</h4>
+      <p class="product-meta">Seeds · Budgies &amp; cockatiels</p>
+      <ul>
+        <li>Sunflower-controlled formula to avoid obesity.</li>
+        <li>Includes millet, canary seed and oats.</li>
+        <li>Enriched with vitamins and minerals.</li>
+      </ul>
+      <p class="product-tag">Serve with fresh greens daily</p>
+    </article>
+
+    <article class="product-card">
+      <h4>Complete Pellet Diet</h4>
+      <p class="product-meta">Pellets · Parrots &amp; larger birds</p>
+      <ul>
+        <li>Every pellet contains balanced nutrition.</li>
+        <li>Prevents selective eating of only favourite seeds.</li>
+        <li>Available in different sizes and flavours.</li>
+      </ul>
+      <p class="product-tag">Introduce gradually mixed with old food</p>
+    </article>
+
+    <article class="product-card">
+      <h4>Calcium &amp; Mineral Blocks</h4>
+      <p class="product-meta">Supplement · All pet birds</p>
+      <ul>
+        <li>Supports bone strength and laying hens.</li>
+        <li>Helps trim beaks naturally.</li>
+        <li>Keep attached to perch or cage bars.</li>
+      </ul>
+      <p class="product-tag">Always offer alongside fresh water</p>
+    </article>
+  </div>
+
+  <!-- SNACKS BELOW -->
+  <div class="snack-section">
+    <h4>Suggested Treats &amp; Snacks</h4>
+
+    <div class="snack-list">
+      <div class="snack-item">
+        <img src="https://cdn.shopify.com/s/files/1/0525/4145/6550/products/MilletSpray.jpg?v=1613495374?odnHeight=117&odnWidth=117&odnBg=FFFFFF" alt="Millet sprays" class="snack-img">
+        <div class="snack-text">
+          <h5>Millet Sprays</h5>
+          <p>A favourite for budgies and cockatiels — hang a short piece as a special reward.</p>
+        </div>
+      </div>
+
+      <div class="snack-item">
+        <img src="https://www.aquanatureonline.com/wp-content/uploads/2021/08/T2.jpg" alt="Nuts for parrots" class="snack-img">
+        <div class="snack-text">
+          <h5>Natural Nut Pieces</h5>
+          <p>Unsalted almond or walnut pieces for parrots, given sparingly due to high fat.</p>
+        </div>
+      </div>
+
+      <div class="snack-item">
+        <img src="https://m.media-amazon.com/images/I/71KwRfaUzZL.jpg" alt="Dried fruit for birds" class="snack-img">
+        <div class="snack-text">
+          <h5>Dried Fruit Bits (No Sugar)</h5>
+          <p>Tiny pieces of unsweetened apple or papaya tucked into foraging toys.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="snack-note">
+      Keep bird treats small and occasional so they don’t crowd out pellets, seeds and fresh veggies.
+    </p>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
