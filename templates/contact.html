@@ -6,16 +6,12 @@
     <title>Contact | SoulNest</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
 </head>
-<body>
-    <header>
-        <div class="logo">🐾 SoulNest</div>
-        <nav>
-            <a class="nav__link" href="{{ url_for('home') }}">Home</a>
-            <a class="nav__link" href="{{ url_for('about') }}">About</a>
-            <a class="nav__link" href="{{ url_for('login') }}">My Account</a>
-        </nav>
-    </header>
 
+    {% extends "base.html" %}
+
+    {% block title %}Contact - SoulNest{% endblock %}
+
+    {% block content %}
     <div class="contact-container">
         <h1>Contact Us</h1>
         <p class="contact-info">
@@ -54,3 +50,4 @@
     </footer>
 </body>
 </html>
+{% endblock %}

@@ -1,0 +1,53 @@
+/* About Page Styling */
+.about-container {
+    margin-top: 60px;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #f9f7ff, #e6f4ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.about-content {
+    background: #ffffff;
+    max-width: 750px;
+    padding: 40px 35px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+/* Title Styling */
+.about-content h1 {
+    font-size: 2.5rem;
+    color: #2d4a6b;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Paragraph Styling */
+.about-content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* Make strong text slightly colored */
+.about-content strong {
+    color: #2d4a6b;
+}
+
+/* Soft Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

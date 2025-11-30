@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SoulNest{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!--  GLOBAL HEADER (appears on every page) -->
+    <header class="site-header">
+        <div class="container">
+            <a class="brand" href="{{ url_for('home') }}">
+                <div class="logo">🐾 <span>SoulNest</span></div>
+            </a>
+
+            <nav class="main-nav" aria-label="Primary">
+                <a class="nav__link" href="{{ url_for('home') }}">Home</a>
+                <a class="nav__link" href="{{ url_for('contact') }}">Contact</a>
+                <a class="nav__link" href="{{ url_for('about') }}">About</a>
+                <a class="nav__link" href="{{ url_for('login') }}">My Account</a>
+            </nav>
+        </div>
+    </header>
+
+    <!--  PAGE CONTENT -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>
