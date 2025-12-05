@@ -52,7 +52,7 @@ html, body {
 }
 
 .brand__logo {
-  width: 40px;       /* logo size (smaller to save vertical space) */
+  width: 40px;       
   height: 40px;
   object-fit: contain;
   border-radius: 6px;
@@ -70,17 +70,17 @@ html, body {
 /* Navigation (aligned right inside .container) */
 .main-nav {
   display: flex;
-  gap: 26px;               /* spacing between links */
+  gap: 26px;               
   align-items: center;
 }
 
 /* Nav links style */
 .nav__link {
-  color: #6A4CBD;          /* light violet color */
+  color: #6A4CBD;          
   text-decoration: none;
   font-weight: 600;
   font-size: 15px;
-  padding: 6px 8px;        /* compact padding */
+  padding: 6px 8px;        
   border-radius: 8px;
   transition: background .18s ease, color .18s ease, transform .12s ease;
 }
@@ -115,7 +115,7 @@ html, body {
   }
 
   .main-nav {
-    display: none; /* hide nav by default on small screens */
+    display: none; 
     position: absolute;
     right: 14px;
     top: 56px;
@@ -506,7 +506,7 @@ html, body {
 
 /* Single slide */
 .fun-card {
-  flex: 0 0 100%;        /* full width per card */
+  flex: 0 0 100%;        
   padding: 20px 40px;
   box-sizing: border-box;
 }

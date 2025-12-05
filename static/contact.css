@@ -1,4 +1,4 @@
-/* ---------------- Contact page styles (for templates/contact.html) ---------------- */
+
 
 /* page wrapper - card centered on page */
 .contact-container {
@@ -17,7 +17,7 @@
 .contact-container h1 {
   margin: 0 0 12px 0;
   font-size: 30px;
-  color: #4b3e8a;            /* soft violet */
+  color: #4b3e8a;           
   text-align: center;
   font-weight: 800;
   font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, Arial;

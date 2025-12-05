@@ -377,9 +377,7 @@
   let funTrack;
 
   document.addEventListener('DOMContentLoaded', () => {
-    // Existing DOMContentLoaded code for hero...
-    // (keep whatever you already have there)
-
+    
     // Fun facts setup
     funTrack = document.querySelector('.fun-track');
     funCards = Array.from(document.querySelectorAll('.fun-track .fun-card'));
@@ -389,7 +387,7 @@
 
   function updateFunSlider() {
     if (!funTrack || !funCards.length) return;
-    const offset = -funCurrentIndex * 100; // because min-width: 100%
+    const offset = -funCurrentIndex * 100; 
     funTrack.style.transform = `translateX(${offset}%)`;
   }
 // Auto-slide every 3 seconds

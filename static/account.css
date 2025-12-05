@@ -14,7 +14,7 @@ header {
 header .logo {
     font-size: 26px;
     font-weight: 700;
-    color: #3B4F8B; /* soft navy violet */
+    color: #3B4F8B; 
     display: flex;
     align-items: center;
     gap: 8px;
@@ -23,14 +23,14 @@ header .logo {
 header nav a {
     margin-left: 25px;
     font-size: 16px;
-    color: #6A4CBD; /* light violet */
+    color: #6A4CBD; 
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s ease;
 }
 
 header nav a:hover {
-    color: #4AA8FF; /* bright baby blue hover */
+    color: #4AA8FF; 
     transform: translateY(-2px);
 }
 

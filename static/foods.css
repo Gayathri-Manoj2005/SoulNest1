@@ -129,7 +129,7 @@ body {
 }
 
 .detail-section h3 {
-  font-size: 22px;                /* Larger */
+  font-size: 22px;                
   color: #0f2647;
   margin-bottom: 8px;
 }
@@ -157,7 +157,7 @@ body {
 }
 
 .product-card h4 {
-  font-size: 18px;               /* Bigger */
+  font-size: 18px;               
   font-weight: 600;
   color: #0f2647;
   margin-bottom: 6px;
