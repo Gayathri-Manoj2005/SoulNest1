@@ -1,0 +1,71 @@
+<!-- templates/mates.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Available Pets for Mating</title>
+
+  <!-- main site stylesheet (if you have a global style.css keep it) -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <!-- page-specific stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='mates.css') }}">
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="mates-hero">
+    <div class="mates-blob one" aria-hidden="true"></div>
+<div class="mates-blob two" aria-hidden="true"></div>
+
+<div class="hero-inner">
+  <h1>Available Pets for Mating</h1>
+  <p>Find responsible, verified matches for your pet based on breed, age, temperament, and health compatibility. Contact owners or view a pet profile to learn more.</p>
+</div>
+  </section>
+
+  
+
+  <!-- Controls / Search -->
+  <div class="mates-controls">
+    <form method="get" action="{{ url_for('mates') }}">
+      <input type="search" name="q" placeholder="Search by name or breed..." value="{{ q }}">
+      <select name="species">
+        <option value="">All species</option>
+        <option value="Dog" {% if species=='dog' %}selected{% endif %}>Dog</option>
+        <option value="Cat" {% if species=='cat' %}selected{% endif %}>Cat</option>
+      </select>
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <!-- Pets grid -->
+  <section class="pets-grid">
+    {% if pets %}
+      {% for pet in pets %}
+        <article class="pet-card">
+          <img src="{{ url_for('static', filename=pet.image) }}" alt="{{ pet.name }}" class="pet-thumb">
+          <div class="pet-body">
+            <div>
+              <div class="pet-name">{{ pet.name }} <span class="pet-gender">• {{ pet.gender }}</span></div>
+              <div class="pet-meta">{{ pet.breed }} · {{ pet.age }} · {{ pet.location }}</div>
+            </div>
+
+            <p class="pet-short">
+              Friendly, vaccinated, and owner-approved. Contact to arrange a meet.
+            </p>
+
+            <div class="pet-actions">
+              <a href="/pet/{{ pet.id }}" class="btn-outline">View Profile</a>
+              <a href="/contact-owner/{{ pet.id }}" class="btn-primary">Contact Owner</a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    {% else %}
+      <p class="empty-note">No pets found. Try clearing filters.</p>
+    {% endif %}
+  </section>
+
+</body>
+</html>

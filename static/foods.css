@@ -9,6 +9,9 @@ body {
   background: linear-gradient(180deg, #eef7ff, #d6ecff);
   min-height: 100vh;
   padding: 40px 16px 60px;
+  font-size: 16px;              /* Increased for readability */
+  line-height: 1.6;             /* Better spacing */
+  color: #1a2b3c;               /* Slightly darker base color */
 }
 
 .page-wrapper {
@@ -23,15 +26,15 @@ body {
 }
 
 .foods-header h1 {
-  font-size: 36px;
+  font-size: 40px;             /* Bigger heading */
   font-weight: 700;
-  color: #183153;
-  margin-bottom: 8px;
+  color: #0f2647;              /* Darker */
+  margin-bottom: 10px;
 }
 
 .foods-header p {
-  font-size: 16px;
-  color: #4b5969;
+  font-size: 18px;             /* Bigger paragraph */
+  color: #374556;              /* Improved contrast */
 }
 
 /* Category card grid */
@@ -48,8 +51,9 @@ body {
   box-shadow: 0 18px 38px rgba(15, 35, 52, 0.12);
   padding: 20px 20px 24px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
+  display: flex;              /* NEW */
+  flex-direction: column;     /* NEW */
+  justify-content: space-between; /* NEW: pushes button to bottom */
   align-items: center;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -62,31 +66,32 @@ body {
 /* Card image */
 .food-photo {
   width: 100%;
-  height: 190px;
+  height: 150px;
   object-fit: cover;
-  border-radius: 18px;
+  border-radius: 14px;
   margin-bottom: 16px;
 }
 
 /* Text styles */
 .food-card h2 {
-  font-size: 22px;
-  color: #183153;
-  margin-bottom: 8px;
+  font-size: 16px;                /* Slightly bigger */
+  color: #0f2647;
+  margin-bottom: 6px;
+  font-weight: 700;
 }
 
 .food-card p {
-  font-size: 14px;
-  color: #4b5969;
+  font-size: 18px;                /* Better readability */
+  color: #3b4a59;
   margin-bottom: 10px;
-  line-height: 1.5;
+  line-height: 1.65;
 }
 
 /* Tags */
 .food-tags {
   list-style: none;
-  font-size: 13px;
-  color: #7b8794;
+  font-size: 14px;
+  color: #5d6b78;
   margin-bottom: 16px;
 }
 
@@ -97,11 +102,11 @@ body {
 /* Button */
 .food-btn {
   display: inline-block;
-  padding: 10px 26px;
+  padding: 10px 20px;
   border-radius: 999px;
   background: linear-gradient(135deg, #4facfe, #0066ff);
   color: #ffffff;
-  font-size: 14px;
+  font-size: 14px;                
   font-weight: 600;
   text-decoration: none;
   box-shadow: 0 10px 20px rgba(0, 102, 255, 0.35);
@@ -117,47 +122,21 @@ body {
 /* Detail sections (targets for buttons) */
 .detail-section {
   margin-top: 50px;
-  padding: 30px 20px;
+  padding: 28px 20px;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 20px;
   box-shadow: 0 14px 30px rgba(15, 35, 52, 0.08);
 }
 
 .detail-section h3 {
-  font-size: 20px;
-  color: #031d42;
+  font-size: 22px;                /* Larger */
+  color: #0f2647;
   margin-bottom: 8px;
 }
 
-.detail-section p {
-  font-size: 16px;
-  color: #02152b;
-}
-
-@media (max-width: 768px) {
-  .foods-header h1 {
-    font-size: 28px;
-  }
-}
-
-/* Detail section wrapper */
-.detail-section {
-  margin-top: 50px;
-  padding: 30px 24px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 20px;
-  box-shadow: 0 14px 30px rgba(15, 35, 52, 0.08);
-}
-
-.detail-section h3 {
-  font-size: 20px;
-  color: #183153;
-  margin-bottom: 6px;
-}
-
 .detail-subtitle {
-  font-size: 14px;
-  color: #4b5969;
+  font-size: 16px;
+  color: #3b4a59;
   margin-bottom: 16px;
 }
 
@@ -173,19 +152,19 @@ body {
   background: #f9fbff;
   border-radius: 18px;
   padding: 14px 16px 16px;
-  box-shadow: 0 10px 22px rgba(15, 35, 52, 0.08);
+  box-shadow: 0 10px 22px rgba(15,35,52,0.08);
   text-align: left;
 }
 
 .product-card h4 {
-  font-size: 16px;
+  font-size: 18px;               /* Bigger */
   font-weight: 600;
-  color: #183153;
-  margin-bottom: 4px;
+  color: #0f2647;
+  margin-bottom: 6px;
 }
 
 .product-meta {
-  font-size: 13px;
+  font-size: 14px;
   color: #2c5ea4;
   margin-bottom: 8px;
 }
@@ -193,21 +172,22 @@ body {
 .product-card ul {
   padding-left: 18px;
   margin-bottom: 8px;
+  flex-grow: 1;
 }
 
 .product-card li {
-  font-size: 13px;
-  color: #4b5969;
-  margin-bottom: 2px;
+  font-size: 14px;
+  color: #3b4a59;
+  margin-bottom: 4px;
 }
 
 .product-tag {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: #0d77ff;
 }
 
-/* SNACKS BELOW FOOD CARDS */
+/* SNACK SECTION */
 .snack-section {
   margin-top: 10px;
   border-top: 1px solid #e2e8f0;
@@ -216,19 +196,18 @@ body {
 }
 
 .snack-section h4 {
-  font-size: 16px;
-  color: #183153;
+  font-size: 18px;
+  color: #0f2647;
   margin-bottom: 10px;
 }
 
-/* Vertical list of snack items */
+/* Vertical list */
 .snack-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* Each snack row */
 .snack-item {
   display: flex;
   align-items: flex-start;
@@ -239,38 +218,38 @@ body {
   box-shadow: 0 8px 18px rgba(15, 35, 52, 0.06);
 }
 
-/* Snack image */
 .snack-img {
-  width: 72px;
-  height: 72px;
+  width: 76px;
+  height: 76px;
   border-radius: 14px;
   object-fit: cover;
   flex-shrink: 0;
 }
 
-/* Snack text */
 .snack-text h5 {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  color: #183153;
+  color: #0f2647;
   margin-bottom: 4px;
 }
 
 .snack-text p {
-  font-size: 13px;
-  color: #4b5969;
-  line-height: 1.5;
+  font-size: 14px;
+  color: #3b4a59;
+  line-height: 1.55;
 }
 
-/* Small note under snacks */
 .snack-note {
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 13px;
   color: #6b7280;
 }
 
 /* responsive tweak */
 @media (max-width: 768px) {
+  .foods-header h1 {
+    font-size: 32px;
+  }
   .detail-section {
     padding: 20px 16px;
   }

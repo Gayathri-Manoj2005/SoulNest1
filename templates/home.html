@@ -76,6 +76,8 @@
         <div class="dots-container" id="dots"></div>
     </div>
 
+
+    
     <!-- Content Sections -->
     <div class="content-wrapper">
         <!-- Connect with us section -->
@@ -184,14 +186,63 @@
   </div>
 </section>
 
+<!-- ⭐ HAPPY TAILS / SUCCESS STORIES SECTION ⭐ -->
+<section id="success-stories" class="success-section">
+    <h2 class="section-title">Happy Tails 🐾</h2>
+    <p class="section-subtitle">Real families. Real stories. Real love. 💖</p>
+
+    <div class="stories-grid">
+
+        <!-- Story 1 -->
+        <div class="story-card">
+            <p class="story-text">
+                "We adopted Max 2 years ago and he's brought so much joy to our family.
+                He’s amazing with our kids and has become the best companion ever!"
+            </p>
+            <p class="story-author">— Komal & Kunal, Max's Family 🐕</p>
+        </div>
+
+        <!-- Story 2 -->
+        <div class="story-card">
+            <p class="story-text">
+                "Luna was shy at first, but with patience and love she’s now the 
+                most affectionate cat. She follows me everywhere and purrs constantly."
+            </p>
+            <p class="story-author">— Naveen, Luna’s Dad 🐈</p>
+        </div>
+
+        <!-- Story 3 -->
+        <div class="story-card">
+            <p class="story-text">
+                "Buddy was 8 years old when we adopted him. Everyone told us to
+                get a puppy... but Buddy has been perfect. So much love & wisdom!"
+            </p>
+            <p class="story-author">— Nikhila, Buddy’s Mom 🐶</p>
+        </div>
+
+        <!-- Story 4 -->
+        <div class="story-card">
+            <p class="story-text">
+                "Rocky came from a difficult past, but SoulNest helped us help him heal.
+                He’s now confident, happy and sleeps at my feet every night."
+            </p>
+            <p class="story-author">— Aysha, Rocky’s Mom 🐕‍🦺</p>
+        </div>
+
+    </div>
+</section>
+
+
 
         <!-- Call to Action -->
         <div class="cta-section" id="call-to-action">
-            <h2>Ready to Change a Life?</h2>
+            <h2>Looking for a mate for your pet?</h2>
+        <br>
             <p style="font-size: 1.25rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-                Your perfect companion is waiting for you. Start your adoption journey today and experience the unconditional love only a rescue pet can give.
+                Find responsible, verified matches for your pet based on breed, age, temperament, and health compatibility. We ensure a safe, reliable environment for connecting with other pet owners.
             </p>
-            <button class="btn-white">Browse Available Pets</button>
+            <a href="{{ url_for('mates') }}" class="browse-btn">
+           Browse Available Pets</a>
         </div>
     </div>
 

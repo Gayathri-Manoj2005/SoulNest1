@@ -64,3 +64,7 @@ def shelters():
 def foods():
     return render_template('foods.html')
 
+@app.route('/mates')
+def mates():
+    return render_template('mates.html')
+
