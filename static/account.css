@@ -1,51 +1,21 @@
-/* ---------- Header ---------- */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 50px;
-    background: #ffffff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-header .logo {
-    font-size: 26px;
-    font-weight: 700;
-    color: #3B4F8B; 
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-header nav a {
-    margin-left: 25px;
-    font-size: 16px;
-    color: #6A4CBD; 
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s ease;
-}
-
-header nav a:hover {
-    color: #4AA8FF; 
-    transform: translateY(-2px);
-}
 
 
-/* Overall Page Background */
-body.login-page {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
+
+/* Overall Page Background for the login area */
+.login-page {
+  min-height: calc(100vh - 0px); /* 80px ≈ header height, adjust if needed */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #f1f3fb, #bdcbf5);
+  padding: 40px 0;
+  background: linear-gradient(135deg, #fae5fc, #c0ecf9);
 }
+
+/* Make sure body doesn't add extra white margin */
+body {
+  margin: 0;
+}
+
 
 /* Login Container Card */
 .login-container {
@@ -130,16 +100,15 @@ body.login-page {
 
 
 /* Sign Up Page Background */
-body.signup-page {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
+.signup-page {
+  min-height: calc(100vh - 0px); /* adjust for header height if needed */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #e8faff, #fdebff);
+  padding: 40px 0;
+  background: linear-gradient(135deg, #c0ecf9, #fae5fc);
 }
+
 
 /* Sign Up Container Card */
 .signup-container {

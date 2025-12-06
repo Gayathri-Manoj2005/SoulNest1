@@ -6,6 +6,9 @@
     <title>{% block title %}SoulNest{% endblock %}</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    {# Extra per-page CSS can go here #}
+    {% block head %}{% endblock %}
 </head>
 
 <body>

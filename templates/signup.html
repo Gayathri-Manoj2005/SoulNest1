@@ -1,22 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up | SoulNest</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='account.css') }}">
-</head>
-<body class="signup-page">
-  <div class="login-container">
-    <h1>Create Your SoulNest Account</h1>
-    <form action="/signup" method="post">
-      <input type="text" name="username" placeholder="Username" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-      <button type="submit">Sign Up</button>
-    </form>
-    <p>Already have an account? <a href="/login">Login</a></p>
+{% extends "base.html" %}
+
+{% block title %}Sign Up - SoulNest{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='account.css') }}">
+{% endblock %}
+
+{% block content %}
+  <div class="signup-page">
+    <div class="signup-container">
+      <h1>Create Your SoulNest Account</h1>
+      <form action="/signup" method="post">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="/login">Login</a></p>
+    </div>
   </div>
-</body>
-</html>
+{% endblock %}
