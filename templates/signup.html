@@ -1,101 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up | SoulNest</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='account.css') }}">
-</head>
+{% extends "base.html" %}
 
-<body class="signup-page">
-  <div class="login-container">
-    <h1>Create Your SoulNest Account</h1>
+{% block title %}Sign Up - SoulNest{% endblock %}
 
-    <form action="/signup" method="post" onsubmit="return validateForm()">
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='account.css') }}">
+{% endblock %}
 
-      <input type="text" name="username" placeholder="Username" required>
-
-      <input type="email" name="email" placeholder="Email" required>
-
-      <!-- PASSWORD FIELD WITH VALIDATION -->
-      <input type="password" id="password" name="password" placeholder="Password" required onkeyup="validatePassword()">
-
-      <!-- Password validation message -->
-      <small id="passwordMessage" style="color:red; font-size:13px;"></small>
-
-      <!-- Strength bar -->
-      <div id="strengthBar" style="height:6px; width:100%; background:#ddd; margin-top:5px;">
-          <div id="strengthFill" style="height:6px; width:0%; background:red;"></div>
-      </div>
-
-      <!-- CONFIRM PASSWORD -->
-      <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required onkeyup="checkConfirmPassword()">
-
-      <small id="confirmMessage" style="color:red; font-size:13px;"></small>
-
-      <button type="submit">Sign Up</button>
-    </form>
-
-    <p>Already have an account? <a href="/login">Login</a></p>
+{% block content %}
+  <div class="signup-page">
+    <div class="signup-container">
+      <h1>Create Your SoulNest Account</h1>
+      <form action="/signup" method="post">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="/login">Login</a></p>
+    </div>
   </div>
-
-
-<!-- VALIDATION SCRIPTS -->
-<script>
-function validatePassword() {
-    const password = document.getElementById("password").value;
-    const message = document.getElementById("passwordMessage");
-    const strengthFill = document.getElementById("strengthFill");
-
-    let errors = [];
-    let strength = 0;
-
-    if (password.length >= 8) strength++;
-    else errors.push("• Minimum 8 characters");
-
-    if (/[A-Z]/.test(password)) strength++;
-    else errors.push("• Must contain an uppercase letter");
-
-    if (/[a-z]/.test(password)) strength++;
-    else errors.push("• Must contain a lowercase letter");
-
-    if (/\d/.test(password)) strength++;
-    else errors.push("• Must contain a number");
-
-    if (/[@$!%*?&#._-]/.test(password)) strength++;
-    else errors.push("• Must contain a special character (@$!%*?&#._-)");
-
-    if (errors.length > 0) {
-        message.innerHTML = errors.join("<br>");
-    } else {
-        message.innerHTML = "<span style='color:green;'>Strong password ✔</span>";
-    }
-
-    const widths = ["0%", "20%", "40%", "60%", "80%", "100%"];
-    strengthFill.style.width = widths[strength];
-
-    strengthFill.style.background = strength <= 2 ? "red" :
-                                    strength <= 4 ? "orange" : "green";
-}
-
-function checkConfirmPassword() {
-    const pass = document.getElementById("password").value;
-    const confirm = document.getElementById("confirm_password").value;
-    const msg = document.getElementById("confirmMessage");
-
-    if (pass !== confirm) {
-        msg.innerHTML = "Passwords do not match ❌";
-        return false;
-    } else {
-        msg.innerHTML = "<span style='color:green;'>Passwords match ✔</span>";
-        return true;
-    }
-}
-
-function validateForm() {
-    return checkConfirmPassword();
-}
-</script>
-
-</body>
-</html>
+{% endblock %}
