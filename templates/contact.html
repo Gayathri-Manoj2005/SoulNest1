@@ -1,53 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | SoulNest</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
-</head>
+{% extends "base.html" %}
 
-    {% extends "base.html" %}
+{% block title %}Contact - SoulNest{% endblock %}
 
-    {% block title %}Contact - SoulNest{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
+{% endblock %}
 
-    {% block content %}
-    <div class="contact-container">
-        <h1>Contact Us</h1>
-        <p class="contact-info">
-            Contact us for your pet-related concerns.<br>
-            Just leave your details by filling out the simple form below,<br>
-            and our team will get in touch with you.
-        </p>
+{% block content %}
+<div class="contact-container">
+    <h1>Contact Us</h1>
+    <p class="contact-info">
+        Contact us for your pet-related concerns.<br>
+        Just leave your details by filling out the simple form below,<br>
+        and our team will get in touch with you.
+    </p>
 
-        {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-            {% for category, message in messages %}
-              <div class="flash {{ category }}">{{ message }}</div>
-            {% endfor %}
-          {% endif %}
-        {% endwith %}
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
 
-        <form action="{{ url_for('contact') }}" method="POST" class="contact-form">
-            <label>Name:</label>
-            <input type="text" name="name" required>
+    <!-- Contact form -->
+    <form action="{{ url_for('contact') }}" method="POST" class="contact-form" autocomplete="off">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" autocomplete="off" placeholder="Your Name" required>
 
-            <label>Email:</label>
-            <input type="email" name="email" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" autocomplete="off" placeholder="you@example.com" required>
 
-            <label>Phone:</label>
-            <input type="text" name="phone" required>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" autocomplete="off" placeholder="123-456-7890" required>
 
-            <label>Message:</label>
-            <textarea name="message" rows="4" required></textarea>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
 
-            <button type="submit">Send Message</button>
-        </form>
-    </div>
+        <button type="submit">Send Message</button>
+    </form>
+</div>
 
-    <footer>
-        <p>&copy; 2025 SoulNest | All Rights Reserved 🐶🐱</p>
-    </footer>
-</body>
-</html>
+<footer>
+    <p>&copy; 2025 SoulNest | All Rights Reserved 🐶🐱</p>
+</footer>
 {% endblock %}

@@ -7,7 +7,6 @@
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="{{ url_for('static', filename='boarding.css') }}">
 </head>
 <body>
@@ -20,224 +19,113 @@
 
     <div class="layout">
 
-        <!-- LEFT FILTER PANEL -->
+        <!-- LEFT FILTER PANEL: submit to /boarding (GET) -->
         <aside class="filter-panel">
             <div class="filter-header">
                 <span>Filters</span>
-                <a class="clear-filters" href="javascript:void(0)" onclick="clearFilters()">Clear all filters</a>
+                <a class="clear-filters" href="{{ url_for('shelters') }}">Clear all filters</a>
             </div>
 
-            <div class="filter-group">
-                <label for="petType">Pet type</label>
-                <select id="petType" class="filter-select">
-                    <option value="all">Any</option>
-                    <option value="dog">Dog</option>
-                    <option value="cat">Cat</option>
-                    <option value="small">Small pets</option>
-                </select>
-            </div>
+            <form method="get" action="{{ url_for('shelters') }}">
+                <div class="filter-group">
+                    <label for="petType">Pet type</label>
+                    <select id="petType" name="type" class="filter-select">
+                        {% for opt in pet_type_options %}
+                            {% if opt == "" %}
+                                <option value="" {{ 'selected' if selected_pet_type == '' else '' }}>Any</option>
+                            {% else %}
+                                <option value="{{ opt }}" {{ 'selected' if selected_pet_type == opt else '' }}>{{ opt|capitalize }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
 
-            <div class="filter-group">
-                <label for="stateSelect">Search by State</label>
-                <select id="stateSelect" class="filter-select">
-                    <option value="all">Select state...</option>
-                    <option value="tamil-nadu">Tamil Nadu</option>
-                    <option value="karnataka">Karnataka</option>
-                    <option value="telangana">Telangana</option>
-                    <option value="gujarat">Gujarat</option>
-                    <option value="kerala">Kerala</option>
-                </select>
-            </div>
+                <div class="filter-group">
+                    <label for="stateSelect">Search by State</label>
+                    <select id="stateSelect" name="state" class="filter-select">
+                        {% for s in state_options %}
+                            {% if s == "" %}
+                                <option value="" {{ 'selected' if selected_state == '' else '' }}>Select state...</option>
+                            {% else %}
+                                <option value="{{ s }}" {{ 'selected' if selected_state == s else '' }}>{{ s }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
 
-            <div class="filter-group">
-                <label for="citySelect">Search by City</label>
-                <select id="citySelect" class="filter-select">
-                    <option value="all">Select city...</option>
-                    <option value="chennai">Chennai</option>
-                    <option value="bangalore">Bangalore</option>
-                    <option value="hyderabad">Hyderabad</option>
-                    <option value="surat">Surat</option>
-                    <option value="thiruvananthapuram">Thiruvananthapuram</option>
-                </select>
-            </div>
+                <div class="filter-group">
+                    <label for="citySelect">Search by City</label>
+                    <select id="citySelect" name="city" class="filter-select">
+                        {% for c in city_options %}
+                            {% if c == "" %}
+                                <option value="" {{ 'selected' if selected_city == '' else '' }}>Select city...</option>
+                            {% else %}
+                                <option value="{{ c }}" {{ 'selected' if selected_city == c else '' }}>{{ c }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
 
-            <button class="filter-btn" onclick="applyShelterFilter()">Apply Filter</button>
+                <button type="submit" class="filter-btn">Apply Filter</button>
+            </form>
         </aside>
 
         <!-- RIGHT RESULTS AREA -->
         <main class="results">
-            <div class="results-title">Showing all boardings</div>
-
-            <div class="shelters-grid" id="sheltersGrid">
-
-                <!-- Example boarding cards – update image filenames & data-* values as you like -->
-                <article class="shelter-card"
-                         data-pet="cat"
-                         data-state="kerala"
-                         data-city="thiruvananthapuram">
-                    <div class="posted-tag">Posted on: 18 Nov, 2025</div>
-                    <img src="https://www.associationofdogboarders.co.uk/wp-content/uploads/2019/05/original-1024x732.jpg" alt="Boarding 1">
-                    <div class="shelter-name">Cookie’s Haven Boarding</div>
-                    <div class="shelter-meta">
-                        Cats & dogs · Thiruvananthapuram, Kerala
-                    </div>
-
-                    <div class="section-divider"></div>
-                    <div class="contact-label">Contact details -</div>
-                    <div class="contact-row">
-                        <div class="contact-avatar">👤</div>
-                        <div>
-                            <div>Name: Jackson</div>
-                            <div>Number: <a href="tel:+9100000000" class="contact-now">Contact Now</a></div>
-                        </div>
-                    </div>
-
-                    <div class="more-details">
-                        <a href="#">See more details ↗</a>
-                    </div>
-                </article>
-
-                <article class="shelter-card"
-                         data-pet="cat"
-                         data-state="gujarat"
-                         data-city="surat">
-                    <div class="posted-tag">Posted on: 11 Nov, 2025</div>
-                    <img src="https://www.petboardinganddaycare.com/archive/images/articles/volume3edition5/article8a.jpg" alt="Boarding 2">
-                    <div class="shelter-name">Bella’s Feline Boarding</div>
-                    <div class="shelter-meta">
-                        Cats · Surat, Gujarat
-                    </div>
-
-                    <div class="section-divider"></div>
-                    <div class="contact-label">Contact details -</div>
-                    <div class="contact-row">
-                        <div class="contact-avatar">👤</div>
-                        <div>
-                            <div>Name: Priya</div>
-                            <div>Number: <a href="tel:+9100000000" class="contact-now">Contact Now</a></div>
-                        </div>
-                    </div>
-
-                    <div class="more-details">
-                        <a href="#">See more details ↗</a>
-                    </div>
-                </article>
-
-                <article class="shelter-card"
-                         data-pet="dog"
-                         data-state="karnataka"
-                         data-city="bangalore">
-                    <div class="posted-tag">Posted on: 10 Nov, 2025</div>
-                    <img src="https://content.jdmagicbox.com/comp/def_content/dog-boardings/1-dog-boardings-1-wddoa.jpg" alt="Boarding 3">
-                    <div class="shelter-name">Bangalore Paw Boarding</div>
-                    <div class="shelter-meta">
-                        Dogs · Bangalore, Karnataka
-                    </div>
-
-                    <div class="section-divider"></div>
-                    <div class="contact-label">Contact details -</div>
-                    <div class="contact-row">
-                        <div class="contact-avatar">👤</div>
-                        <div>
-                            <div>Name: Arun</div>
-                            <div>Number: <a href="tel:+9100000000" class="contact-now">Contact Now</a></div>
-                        </div>
-                    </div>
-
-                    <div class="more-details">
-                        <a href="#">See more details ↗</a>
-                    </div>
-                </article>
-
-                <article class="shelter-card"
-                         data-pet="dog"
-                         data-state="telangana"
-                         data-city="hyderabad">
-                    <div class="posted-tag">Posted on: 09 Nov, 2025</div>
-                    <img src="https://www.coralbreeze.com/files/boynton_beach_vet/boyton-boarding-king-condo.jpg" alt="Boarding 4">
-                    <div class="shelter-name">Hyderabad Animal Boarding</div>
-                    <div class="shelter-meta">
-                        Dogs & Cats · Hyderabad, Telangana
-                    </div>
-
-                    <div class="section-divider"></div>
-                    <div class="contact-label">Contact details -</div>
-                    <div class="contact-row">
-                        <div class="contact-avatar">👤</div>
-                        <div>
-                            <div>Name: Rahul</div>
-                            <div>Number: <a href="tel:+9100000000" class="contact-now">Contact Now</a></div>
-                        </div>
-                    </div>
-
-                    <div class="more-details">
-                        <a href="#">See more details ↗</a>
-                    </div>
-                </article>
-
+            <div class="results-title">
+                {% if shelters %}
+                  Showing {{ shelters|length }} {{ 'result' if shelters|length == 1 else 'results' }}
+                {% else %}
+                  No boardings found
+                {% endif %}
             </div>
 
-            <p id="noResults" class="no-results" style="display:none;">
-                No boardings found for these filters. Try changing city or state.
-            </p>
+            <div class="shelters-grid" id="sheltersGrid">
+                {% if shelters %}
+                  {% for b in shelters %}
+                    <article class="shelter-card">
+                        <div class="posted-tag">Posted on: {{ b.posted_on if b.posted_on else '' }}</div>
+
+                        {% if b.image_url %}
+                          {% if b.image_url[:4] == 'http' %}
+                            <img src="{{ b.image_url }}" alt="{{ b.name }}">
+                          {% else %}
+                            <img src="{{ url_for('static', filename=b.image_url) }}" alt="{{ b.name }}">
+                          {% endif %}
+                        {% else %}
+                          <img src="{{ url_for('static', filename='images/default_boarding.png') }}" alt="{{ b.name }}">
+                        {% endif %}
+
+                        <div class="shelter-name">{{ b.name }}</div>
+                        <div class="shelter-meta">
+                            {{ b.pet_type|capitalize }}{% if b.city %} · {{ b.city }}{% endif %}{% if b.state %}, {{ b.state }}{% endif %}
+                        </div>
+
+                        <div class="section-divider"></div>
+                        <div class="contact-label">Contact details -</div>
+                        <div class="contact-row">
+                            <div class="contact-avatar">👤</div>
+                            <div>Number: {{ b.contact_number or '—' }}</div>
+                              <div>
+                                    {% if b.contact_number %}
+                                    <a href="tel:{{ b.contact_number }}" class="contact-btn">
+                                                Contact Now
+                                    </a>
+                                    {% else %}
+                                      —
+                                    {% endif %}
+                                    </div>
+
+                        </div>
+                    </article>
+                  {% endfor %}
+                {% else %}
+                  <p class="no-results">No boardings match your filters right now. Try clearing filters or choose another city/state.</p>
+                {% endif %}
+            </div>
         </main>
 
     </div>
 </div>
-
-<script>
-    function applyShelterFilter() {
-        const type  = document.getElementById('petType').value;
-        const state = document.getElementById('stateSelect').value;
-        const city  = document.getElementById('citySelect').value;
-
-        const cards        = document.querySelectorAll('.shelter-card');
-        const noResults    = document.getElementById('noResults');
-        const resultsTitle = document.querySelector('.results-title');
-
-        let visibleCount = 0;
-
-        cards.forEach(card => {
-            const cardType  = card.dataset.pet;
-            const cardState = card.dataset.state;
-            const cardCity  = card.dataset.city;
-
-            const matchesType  = (type === 'all'  || cardType  === type);
-            const matchesState = (state === 'all' || cardState === state);
-            const matchesCity  = (city === 'all'  || cardCity  === city);
-
-            if (matchesType && matchesState && matchesCity) {
-                card.style.display = 'block';
-                visibleCount++;
-            } else {
-                card.style.display = 'none';
-            }
-        });
-
-        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-
-        if (visibleCount === 0) {
-            resultsTitle.textContent = 'No boardings match these filters';
-        } else if (type === 'cat') {
-            resultsTitle.textContent = 'Cat-friendly boardings';
-        } else if (type === 'dog') {
-            resultsTitle.textContent = 'Dog-friendly boardings';
-        } else {
-            resultsTitle.textContent = 'Boardings matching your filters';
-        }
-    }
-
-    function clearFilters() {
-        document.getElementById('petType').value     = 'all';
-        document.getElementById('stateSelect').value = 'all';
-        document.getElementById('citySelect').value  = 'all';
-
-        const cards = document.querySelectorAll('.shelter-card');
-        cards.forEach(card => card.style.display = 'block');
-
-        document.getElementById('noResults').style.display = 'none';
-        document.querySelector('.results-title').textContent = 'Showing all boardings';
-    }
-</script>
 </body>
 </html>
