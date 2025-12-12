@@ -72,12 +72,9 @@ def save_contact_message(name, email, phone, message):
     cursor.close()
     conn.close()
 
+    
 import mysql.connector
-
 def get_boarding_connection():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="RootNew!234",
-        database="boarding_db"
+        host="localhost", user="root", password="RootNew!234", database="boarding_db"
     )
