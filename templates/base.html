@@ -9,6 +9,19 @@
 
     {# Extra per-page CSS can go here #}
     {% block head %}{% endblock %}
+
+    <style>
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+body {
+  padding-top: 85px; /* space so content doesn't hide under header */
+}
+</style>
+
 </head>
 
 <body>

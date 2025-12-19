@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Boardings Close to You</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
 
+{% block title %}Adopt a Pet - SoulNest{% endblock %}
+
+{% block head %}
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='boarding.css') }}">
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
 <div class="page-wrapper">
 
     <div class="page-title">
@@ -106,16 +105,13 @@
                         <div class="contact-row">
                             <div class="contact-avatar">👤</div>
                             <div>Number: {{ b.contact_number or '—' }}</div>
-                              <div>
-                                    {% if b.contact_number %}
-                                    <a href="tel:{{ b.contact_number }}" class="contact-btn">
-                                                Contact Now
-                                    </a>
-                                    {% else %}
-                                      —
-                                    {% endif %}
-                                    </div>
-
+                            <div>
+                                {% if b.contact_number %}
+                                  <a href="tel:{{ b.contact_number }}" class="contact-btn">Contact Now</a>
+                                {% else %}
+                                  —
+                                {% endif %}
+                            </div>
                         </div>
                     </article>
                   {% endfor %}
@@ -126,6 +122,9 @@
         </main>
 
     </div>
+    
 </div>
-</body>
-</html>
+
+
+
+{% endblock %}
