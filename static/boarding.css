@@ -11,7 +11,7 @@
             font-family: "Poppins", sans-serif;
             background: linear-gradient(180deg, #eef7ff, #d6ecff);
             min-height: 100vh;
-            padding: 20px 16px 40px;
+            padding: 20px 0px 40px;
             padding-top: 80px;
         }
 
@@ -77,6 +77,12 @@
             font-weight: 600;
             color: #183153;
         }
+
+        header {
+        margin: 0;
+        padding: 0;
+        }
+
 
         .clear-filters {
             font-size: 13px;

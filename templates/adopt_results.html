@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Available {{ pet_type|capitalize }}s</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% extends "base.html" %}
+
+{% block title %}Available {{ pet_type|capitalize }}s{% endblock %}
+
+{% block head %}
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='adopt-style.css') }}">
   <style>
@@ -15,6 +14,10 @@
     .pet-type-label { font-size:12px; color:#09a5ff; font-weight:600; margin-bottom:6px; }
     .btn-primary { display:inline-block; padding:10px 20px; border-radius:999px; background:#09a5ff; color:#fff; text-decoration:none; font-weight:600; margin-top:12px; }
   </style>
+
+  {% endblock %}
+
+{% block content %}
 </head>
 <body>
   <div class="page-wrapper">
@@ -63,3 +66,5 @@
   </div>
 </body>
 </html>
+
+{% endblock %}
